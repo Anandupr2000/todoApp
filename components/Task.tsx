@@ -2,7 +2,7 @@ import store from '@/models/Store'
 import { observer } from 'mobx-react'
 import React, { useState } from 'react'
 
-type props = { task: typeof store.todosScheduled[0], context: string }
+type props = { task: typeof store.todos[0], context: string }
 
 const Task = ({ task, context }: props) => {
     const [first, setfirst] = useState('')

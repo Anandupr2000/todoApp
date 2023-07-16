@@ -8,13 +8,13 @@ import Task from './Task';
 // export 
 // const ViewTask: React.FC<Props> = ({ myStore }) => {
 const ViewTask = () => {
-    const [tasks, setTasks] = useState<typeof store.todosScheduled>(store.todosScheduled);
+    const [tasks, setTasks] = useState<typeof store.todos>(store.todos);
 
     // console.log(localStorage.getItem('tasks'))
     console.log(tasks)
     useEffect(() => {
         console.log(localStorage.setItem('tasks', store.toString()))
-        setTasks(store.todosScheduled)
+        setTasks(store.todos)
     }, [])
     return (
         <div className='Tasks'>
