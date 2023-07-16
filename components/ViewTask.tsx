@@ -10,7 +10,7 @@ import Task from './Task';
 const ViewTask = () => {
     const [tasks, setTasks] = useState<typeof store.todosScheduled>(store.todosScheduled);
 
-    console.log(localStorage.getItem('tasks'))
+    // console.log(localStorage.getItem('tasks'))
     console.log(tasks)
     useEffect(() => {
         console.log(localStorage.setItem('tasks', store.toString()))

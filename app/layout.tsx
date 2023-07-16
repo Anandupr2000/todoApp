@@ -1,13 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
+// import icon from '../public/to-do-list.png'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Todo App',
   description: 'App for marking down tasks',
-  
+  // icons:
 }
 
 export default function RootLayout({
