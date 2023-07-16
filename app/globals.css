@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+main{
+  /* @apply flex min-h-screen flex-col items-center justify-between */
+  @apply flex flex-col items-center justify-between
+}
+.Heading {
+  @apply flex flex-col gap-3 mt-[2rem] min-w-full
+}
+.Heading h1 {
+  @apply text-4xl font-bold tracking-widest
+}
+.Heading h2 {
+  @apply text-xl tracking-widest
+}
+.Heading h1,h2 {
+  text-align: center;
+  @apply text-white
+}
+.Heading hr{
+  @apply mt-2 w-[90%] max-w-2xl self-center
+}
+
+.input{
+  @apply bg-white rounded-xl w-[90%] p-3 h-16 max-w-lg flex self-center border m-5
+}
+.input input{
+  @apply w-[82%] text-black text-lg ps-2 outline-none border-none
+}
+.input i{
+  @apply font-extrabold w-[18%] max-w-[4rem] bg-blue-500 p-2 rounded-md m-auto text-center self-center
+}
+.Tasks{
+  @apply flex flex-col ps-10 pe-10 mb-10 gap-5 md:gap-[1rem] md:flex-row lg:gap-10
+}
+.Tasks h1{
+  @apply mb-3 text-center text-2xl underline underline-offset-8
+}
+.Tasks .view{
+  @apply w-screen ps-10 pe-10 md:p-0 md:max-w-sm lg:max-w-sm lg:p-0
+}
+.Tasks .view > div{
+  @apply w-full h-96 pt-2 rounded-xl
+}
+#tasksDone{
+  @apply flex flex-col lg:flex-row gap-10
+}
+#scheduled > .Task{
+  @apply bg-green-300
+}
+#tasksDone .completed .Task{
+  @apply bg-green-400
+}
+#tasksDone .deleted .Task{
+  @apply bg-red-400
+}
+
+.Task {
+  @apply w-full h-14 text-xl  text-gray-600 font-bold flex gap-x-10 ps-4 pe-3 rounded-lg
+}
+.Task > *{
+  @apply my-auto
+}
+.Task span{
+  @apply flex-1
+}
+.Task button{
+  @apply float-right text-[2rem] text-red-600 rounded-full rotate-45
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
