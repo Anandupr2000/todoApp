@@ -1,7 +1,4 @@
 "use client"
-import { createContext, useContext } from 'react';
-import { observable, action, makeObservable } from 'mobx';
-import { Task } from '@/typings';
 import { types } from 'mobx-state-tree';
 
 const getDate = () => {
@@ -46,13 +43,11 @@ const User = types.model({
 
 const RootStore = types.model({
   users: types.map(User),
-  todosScheduled: types.array(Todo),
-  todosCompleted: types.array(Todo),
-  todosDiscarded: types.array(Todo)
+  todos: types.array(Todo),
 })
   .actions(self => {
     function addTodo(name: string) {
-      self.todosScheduled.push(Todo.create({ taskName: name }));
+      self.todos.push(Todo.create({ taskName: name }));
     }
 
     return { addTodo };
@@ -60,11 +55,6 @@ const RootStore = types.model({
 
 const store = RootStore.create({
   users: {},
-  todosScheduled: [
-    {
-      taskName: "Eat a cake",
-      taskCompletion: true
-    }
-  ]
+  todos: []
 });
 export default store;
